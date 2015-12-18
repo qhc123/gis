@@ -1,0 +1,76 @@
+<include file="Public:head" />
+<include file="Public:left" />
+ <script language="javascript">	
+  //根据ID选择加载不同的文本编辑器 Vent / editor
+  window.onload=function (){
+	  var ue = UE.getEditor('editor');
+  }  
+  // 清除Uedit的内容
+  function setContent(isAppendTo) {
+    UE.getEditor('editor').setContent('', isAppendTo);
+  }
+</script>
+<style>
+ .add_news_content h1{
+	font-size:40px;
+	font-weight:bold;
+	padding-top:5px;
+	padding-left:10px;
+ }
+ .add_news_content div span{
+ 	display:block;
+	font-size:25px;
+	margin-top:10px;
+	margin-bottom:10px;
+	width:20%;
+ }
+ .add_news_content div form div input{
+ 	width:60%;
+ 	display:block;
+ }
+  .add_news_submit{
+ 	margin-left:2%;		
+ }
+ .add_news_reset{
+ 	margin-left:20%;		
+ }	
+</style>
+<div class="content">
+	<div class="main-content">
+	    <div class="header">
+	        <h1 class="page-title">新闻更新</h1>
+	        <ul class="breadcrumb">
+	            <li><a href="__APP__/News/news_list">新闻列表</a></li>
+	            <li class="active">新闻通知</li>
+	    	</ul>
+		</div>
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container">
+	    <!-- 引入左部菜单 -->
+	    <include file="Public:leftMenu" />
+		<!-- BEGIN PAGE -->
+	<div class="page-content">
+	 <div class="add_news_content">
+	 
+		  <div class="hero-unit">						
+            <form action="__APP__/News/updateNewsHandle" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="news_id" value="{$info[news_id]}"/><!-- 需要修改的新闻id -->
+			<div><span>新闻标题:</span><input name="title" type="text" value="{$info.news_title}" /> </div>
+			<!-- <div><span>新闻图片:</span><input name="photo" type="file" /> </div> -->
+			<div><span>新闻描述(可以为空):</span><input name="description" type="text" value="{$info.news_description}" /> </div>
+			<div><span>内容:</span>
+			  <div>
+			  	 <script id="editor" name="content" type="text/plain" style="height:400px;">{$info.news_content|htmlspecialchars_decode}</script>
+			  </div>
+			</div>
+			<div><span>发布者:</span><input type="text" name="publisher" value="{$info.news_author}" /></div><br>
+			<!-- <div><span>来自:</span><input type="text" name="from" /></div>	<br/> -->
+			<input class="add_news_submit" type="submit" value="修改"/>
+			<input class="add_news_reset" type="reset"  value="取消" onclick="setContent('')"/>
+            </form>				
+		  </div>			
+	 </div>			 
+	</div>
+	<!-- END PAGE -->
+	</div>
+<include file="Public:foot" />

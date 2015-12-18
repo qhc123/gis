@@ -1,0 +1,65 @@
+<include file="Public:head" />
+<include file="Public:left" />
+<style>
+	.admin-logo img{
+		width: 160px;
+		height: 155px;
+	}
+</style>
+<div class="content">
+	<div class="main-content">
+	    <div class="header">
+	        <h1 class="page-title">系统设置</h1>
+	        <ul class="breadcrumb">
+	            <li><a href="__APP__/Index/index">Home</a></li>
+	            <li class="active">信息修改</li>
+	    	</ul>
+		</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<form action="__APP__/System/update_admin_info" method="post" name="content" id="content" enctype="multipart/form-data">
+				<div class="col-md-8 col-md-offset-4 admin-logo"><img src="__ROOT__/{$info.admin_img}" alt="您的尊颜" class="img-circle"></div>
+				<div class="form-group">
+				<label>头像修改</label>
+				    <input type="file" name="photo">
+				</div>
+				 <div class="form-group">
+				 	<input type="hidden" value="{$info.admin_id}" name="admin_id">
+                      <label>用户名修改</label>
+                      <input type="text" name="username" class="form-control span12" value="{$info.admin_name}">
+                  </div>
+                  <div class="form-group">
+                  <label>密码修改<span style="color:red"> （*必填项）</span></label>
+                      <input type="password" name="password" class="form-control span12 form-control">
+                  </div>
+			  
+			  <div class="pull-right"><button class="btn btn-info" onclick="return checkFrom();">保存修改的内容</button></div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+
+	function checkFrom(){
+		var add = document.content;
+		if(add != null){
+
+			if(add.username.value == ''){
+				alert('用户名不能为空');
+				add.username.focus();
+				return false;
+			}
+			
+			if (add.password.value == '') {
+				alert('请填写密码');
+				add.password.focus();
+				return false;
+			}
+		    
+			
+			$('#content').submit();
+		}
+		return false;
+	}
+
+	</script>
+<include file="Public:foot" />

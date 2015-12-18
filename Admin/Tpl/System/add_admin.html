@@ -1,0 +1,73 @@
+<include file="Public:head" />
+<include file="Public:left" />
+<div class="content">
+	<div class="main-content">
+	    <div class="header">
+	        <h1 class="page-title">系统设置</h1>
+	        <ul class="breadcrumb">
+	            <li><a href="__APP__/Index/index">Home</a></li>
+	            <li class="active">申请管理员</li>
+	    	</ul>
+		</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<form action="__APP__/System/register_admin" method="post" name="content" id="content" enctype="multipart/form-data">
+				<div class="form-group">
+				<label>头像修改</label>
+				    <input type="file" name="photo">
+				</div>
+				 <div class="form-group">
+				 	<input type="hidden" value="{$info.admin_id}" name="admin_id">
+                      <label>用户名（*必填项）</label>
+                      <input type="text" name="username" class="form-control span12" value="{$info.admin_name}">
+                  </div>
+                  <div class="form-group">
+                  <label>密码<span style="color:red"> （*必填项）</span></label>
+                      <input type="password" name="password" class="form-control span12 form-control">
+                  </div>
+                  <div class="form-group">
+                  <label>确认密码<span style="color:red"> （*必填项）</span></label>
+                      <input type="password" name="repassword" class="form-control span12 form-control">
+                  </div>
+                  <div class="form-group">
+                  
+                      权限(*单选):管理员<input type="checkbox" name="mg" value="1" >
+                      普通<input type="checkbox" name="us" value="2">
+                  </div>
+			  
+			  <div class="pull-right"><button class="btn btn-info" onclick="return checkFrom();">申请成为管理员</button></div>
+			</form>
+		</div>
+	</div>
+
+<script type="text/javascript">
+
+function checkFrom(){
+	var add = document.content;
+	if(add != null){
+
+		if(add.username.value == ''){
+			alert('用户名不能为空');
+			add.username.focus();
+			return false;
+		}
+		
+		if (add.password.value == '') {
+			alert('请填写密码');
+			add.password.focus();
+			return false;
+		}
+	    
+	    if (add.password.value != add.repassword.value) {
+			alert('两次密码不一致');
+			add.repassword.focus();
+			return false;
+		}
+		
+		$('#content').submit();
+	}
+	return false;
+}
+
+</script>
+<include file="Public:foot" />

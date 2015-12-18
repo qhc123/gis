@@ -1,0 +1,104 @@
+<include file="Public:head" />
+<include file="Public:left" />
+
+ 
+  
+    <table width="98%" border="0" align="center" style="margin-top:20px;margin-left: 245px; border:1px solid #9abcde;">  
+    <form id="form1" name="form1" enctype="multipart/form-data" method="post" action="__APP__/StudyPark/getOrderList">  
+      
+        <tr >  
+            <td height="28" colspan="2" <label>  <strong><a href="#">excel导入</a></strong></label></td>  
+        </tr>  
+        <tr>  
+            <td width="18%" height="50"> 选择你要导入的数据表</td>  
+            <td width="82%"><label>  
+            <input name="file" type="file" id="file" size="50" />  
+            </label>  
+                <label>  
+                <input name="button" type="submit" class="nnt_submit" id="button" value="导入数据"    onclick="import_check();"/>  
+                </label>  
+ </td>  
+        </tr>  
+        <tr>  
+            <td colspan="2" bgcolor="#DDF0FF">  [<span class="STYLE1">注</span>]数据导入格式说明:</td>  
+        </tr>  
+        <tr>  
+            <td colspan="2">    1、其它.导入数据表文件必须是<strong>execel</strong>文件格式{.<span class="STYLE2">xls</span>}为扩展名．</td>  
+        </tr>  
+        <tr>  
+            <td colspan="2">  2、execel文件导入数据顺序必须严格按照规定顺序。</td>  
+        </tr>  
+        <tr>  
+            <td colspan="2"> </td>  
+        </tr></form>  
+    </table>
+    <form id="form1" name="form1"  method="post" action="__APP__/StudyPark/addList">  
+    <table width="60%" border="0" align="center" style="margin-top:20px;margin-left: 245px; ">  
+    
+      
+        <tr >  
+            <td height="28" colspan="3" ><label>  <strong><a href="#">手动导入</a></strong></label></td>  
+        </tr>
+        <tr> 
+         <td >学生姓名</td>
+         
+         <td>性别</td>
+         <td>出生日期</td>
+         <td>班级</td>
+         <td>QQ</td>
+         <td>负责人</td>
+         <td>电话</td>
+        </tr>
+        <tr> 
+         <td><input name="name[]" type="text"  /></td>
+         <td><input name="sex[]" type="text" /></td>
+         <td><input name="date[]" type="text" /></td>
+         <td><input name="class[]" type="text" /></td>
+         <td><input name="qq[]" type="text" /></td>
+         <td><input name="teacher[]" type="text" /></td>
+         <td><input name="tel[]" type="text" /></td>
+        </tr>
+        <tr> 
+         <td><input name="name[]" type="text"  /></td>
+         <td><input name="sex[]" type="text" /></td>
+         <td><input name="date[]" type="text" /></td>
+         <td><input name="class[]" type="text" /></td>
+         <td><input name="qq[]" type="text" /></td>
+         <td><input name="teacher[]" type="text" /></td>
+         <td><input name="tel[]" type="text" /></td>
+        </tr>
+        <tr> 
+         <td><input name="name[]" type="text"  /></td>
+         <td><input name="sex[]" type="text" /></td>
+         <td><input name="date[]" type="text" /></td>
+         <td><input name="class[]" type="text" /></td>
+         <td><input name="qq[]" type="text" /></td>
+         <td><input name="teacher[]" type="text" /></td>
+         <td><input name="tel[]" type="text" /></td>
+        </tr>
+        <tr> 
+         <td><input name="name[]" type="text"  /></td>
+         <td><input name="sex[]" type="text" /></td>
+         <td><input name="date[]" type="text" /></td>
+         <td><input name="class[]" type="text" /></td>
+         <td><input name="qq[]" type="text" /></td>
+         <td><input name="teacher[]" type="text" /></td>
+         <td><input name="tel[]" type="text" /></td>
+        </tr>
+        <tr> 
+         <td><input name="name[]" type="text"  /></td>
+         <td><input name="sex[]" type="text" /></td>
+         <td><input name="date[]" type="text" /></td>
+         <td><input name="class[]" type="text" /></td>
+         <td><input name="qq[]" type="text" /></td>
+         <td><input name="teacher[]" type="text" /></td>
+         <td><input name="tel[]" type="text" /></td>
+        </tr>
+    </table>
+
+    <input name="submit" type="submit" value="导入" style="margin-left:1335px">
+
+</form>
+    </body>
+</html>
+<include file="Public:foot" />

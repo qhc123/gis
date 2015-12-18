@@ -1,0 +1,31 @@
+<include file="Public:head" />
+<include file="Public:left" />
+<style>
+.adminp p{
+	font-size: 20px;
+	font-weight: 500;
+}
+.admin-info{
+	color: #5ED9EF;
+	font-size: 18px;
+}
+</style>
+<div class="content">
+	<div class="main-content">
+	    <div class="header">
+	        <h1 class="page-title">主页</h1>
+	        <ul class="breadcrumb">
+	            <li><a href="__APP__/News/news_list">home</a></li>
+	            <li class="active">主页</li>
+	    	</ul>
+		</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2 admin-logo"><img src="__ROOT__/{$info.admin_img}" alt="您的尊颜" class="img-circle"></div>
+		<div class="col-md-4 adminp">
+			<p>管理员账号：<span class="admin-info">{$info.admin_name}</span></p>
+			<!-- <p>登陆次数：<span class="admin-info">{$info.login_num}次</span></p>
+		<p>上次登陆时间：<span class="admin-info">{:substr($info[last_login_time],0,10)}</span></p> -->
+		</div>
+		
+	</div>
+<include file="Public:foot" />
