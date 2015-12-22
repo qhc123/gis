@@ -19,10 +19,11 @@ class SystemAction extends RootAction {
     public function register_admin(){
     	$data = array();
         $rc = $_SESSION['User']['admin_rc'];
+
         $bool = M('Admin');
         $username = I('post.username');
-        $mg = I('mg');
-        $us = I('us');
+        $mg = I('rc');
+        
         $res = $bool->where("admin_name='$username'")->find();
         // echo M('Admin')->getLastSql();exit;
     	$data['admin_name'] = I('post.username');
@@ -55,28 +56,29 @@ class SystemAction extends RootAction {
     		$data['admin_img'] = "Public/admin/img/headerlogo.jpg";
     	}
         
-         if(empty($mg)&&empty($us)){
+         if($mg !== '1' && $mg !== '0'){
             echo "<script>alert('权限不能为空');history.back();</script>";
             exit();
-        }
-
-        if(!empty($mg)&&!empty($us)){
-            echo "<script>alert('权限只能单选');history.back();</script>";
-            exit();
-        }
-        if ($mg&&$rc==0) {
+        }elseif ($mg == '1' && $rc == '0') {
             echo "<script>alert('权限不足');history.back();</script>";
             exit();
             
-        }elseif($mg&&$rc==1){
+        }elseif($rc=='1'){
             $data['admin_rc'] = $mg;
         }
-        if ($us) {
+
+        
+        
+        if ($mg==='0') {
             $data['admin_rc'] = 0;
         }
 
-    	if (empty($res)) {
-            $res1 = $bool->data($data)->add();
+    	if ($res) {
+            echo "<script>alert('用户名已存在');history.back();</script>";
+            exit();
+            
+        }elseif (empty($res)) {
+           $res1 = $bool->data($data)->add();
         }
         
     	if($res1){
